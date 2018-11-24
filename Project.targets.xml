@@ -15,7 +15,6 @@
         PostBuildMacros;
       </PostBuildEventDependsOn>
     <PostBuildEvent>
-        "$(SolutionDir)..\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe" pack -version @(VersionNumber) First.Nuget.Sample.nuspec
-        "$(SolutionDir)..\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe" pack -version @(VersionNumber) Second.Nuget.Sample.nuspec
+"$(SolutionDir)packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe" pack -version @(VersionNumber) MyNuget.Sample.nuspec
     </PostBuildEvent>
   </PropertyGroup>
