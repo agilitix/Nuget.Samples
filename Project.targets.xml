@@ -1,0 +1,21 @@
+
+  <!-- This piece of xml can be put in a .csproj to build a nuget with the assembly version number (AssemblyInfo.cs) -->
+
+  <Target Name="PostBuildMacros">
+    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+      <Output TaskParameter="Assemblies" ItemName="Targets" />
+    </GetAssemblyIdentity>
+    <ItemGroup>
+      <VersionNumber Include="@(Targets->'%(Version)')" />
+    </ItemGroup>
+  </Target>
+  <PropertyGroup>
+    <PostBuildEventDependsOn>
+        $(PostBuildEventDependsOn);
+        PostBuildMacros;
+      </PostBuildEventDependsOn>
+    <PostBuildEvent>
+        "$(SolutionDir)..\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe" pack -version @(VersionNumber) First.Nuget.Sample.nuspec
+        "$(SolutionDir)..\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe" pack -version @(VersionNumber) Second.Nuget.Sample.nuspec
+    </PostBuildEvent>
+  </PropertyGroup>
