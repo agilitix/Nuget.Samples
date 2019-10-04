@@ -17,4 +17,11 @@
             <Visible>False</Visible>
         </Content>
     </ItemGroup>
+    <ItemGroup>
+        <Content Include="$(MSBuildThisFileDirectory)..\lib\net40\*.xml">
+            <Link>%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>False</Visible>
+        </Content>
+    </ItemGroup>
 </Project>
