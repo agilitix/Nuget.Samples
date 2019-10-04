@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="2.13">
+    <id>MyZeroMQ</id>
+    <version>1.23.0</version>
+    <authors>Agilitix for the nuget sample, ZeroMQ: metadings, Pieter Hintjens, Martin Sustrik</authors>
+    <owners>Agilitix for the package sample, ZeroMQ: metadings, Pieter Hintjens, Martin Sustrik</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>http://here</licenseUrl>
+    <description>Sample nuget packaging mixing x86 and x64 natives</description>
+  </metadata>
+  <files>
+    <file src="build\MyZeroMQ.targets" target="build\MyZeroMQ.targets" />
+    <file src="lib\**" target="lib" />
+    <file src="runtimes\x64\**" target="runtimes\x64" />
+    <file src="runtimes\x86\**" target="runtimes\x86" />
+  </files>
+</package>
